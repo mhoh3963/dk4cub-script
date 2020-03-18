@@ -1,0 +1,12 @@
+RUN yum install -y epel-release
+
+RUN yum update -y &&\
+	yum install -y python-pip &&\
+	pip install --upgrade pip &&\
+	pip install -U sphinx &&\
+	pip install sphinx_rtd_theme &&\
+	yum install -y git &&\
+	yum install -y make &&\
+	yum install -y httpd &&\
+	yum install -y vim-enhanced &&\
+	yum install -y net-tools openssh-server

@@ -1,0 +1,28 @@
+RUN yum update -y &&\
+	yum install -y java-1.8.0-openjdk java-1.8.0-openjdk-devel &&\
+	yum install -y wget &&\
+	yum install -y expect &&\
+	yum install -y svn &&\
+	yum install -y libtool &&\
+	yum install -y make &&\
+	yum install -y texinfo &&\
+	yum install -y gcc-c++ &&\
+	yum install -y ant &&\
+	yum install -y ncurses-devel &&\
+	yum install -y elfutils-libelf* &&\
+	yum install -y libgpg-error-devel &&\
+	yum install -y cscope &&\
+	yum install -y ctags &&\
+	yum install -y gdb &&\
+	yum install -y sysstat &&\
+	yum install -y git &&\
+	yum install -y cmake &&\
+	yum install -y systemtap systemtap-sdt-devel &&\
+	yum install -y  bison flex &&\
+	yum install -y elfutils-libelf-devel &&\
+	yum install -y rpm-build &&\
+	yum install -y curl-devel expat-devel gettext-devel openssl-devel perl-devel zlib-devel gcc epel-release &&\
+	yum install -y net-tools openssh-server &&\
+	yum install -y vim-enhanced &&\
+	yum --enablerepo=epel install -y docbook2X asciidoc xmlto
+RUN ln -s /usr/bin/db2x_docbook2texi /usr/bin/docbook2x-texi
