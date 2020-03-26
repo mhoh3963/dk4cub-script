@@ -1,0 +1,9 @@
+RUN yum update -y &&\
+	yum install -y java-1.8.0-openjdk java-1.8.0-openjdk-devel &&\
+	yum install -y ncurses-devel &&\
+	yum install -y gdb &&\
+	yum install -y sysstat &&\
+	yum install -y net-tools openssh-server &&\
+	yum install -y vim-enhanced &&\
+	yum install -y passwd
+

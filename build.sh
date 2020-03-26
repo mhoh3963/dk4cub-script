@@ -25,6 +25,7 @@ function print_usage()
 function find_make_bimage()
 {
 local __DOCKER_FILE="$TEMP_DIR/$TEMP_PREFIX.bimage"
+local __OUTPUT_FILE="$TEMP_DIR/$TEMP_PREFIX.boutput"
 
 	if [ $(is_exist_image $BASEIMG_TO) -eq 1 ]
 	then
@@ -33,7 +34,7 @@ local __DOCKER_FILE="$TEMP_DIR/$TEMP_PREFIX.bimage"
 	fi
 
 	printf '%s %s\n' "FROM" $BASEIMG_FROM > $__DOCKER_FILE
-	printf '%s %s\n\n'  "MAINTAINER" $MAINTAINER >> $__DOCKER_FILE
+	printf '%s %s\n\n'  "MAINTAINER" "$MAINTAINER" >> $__DOCKER_FILE
 
 	if [ -f $BASEIMG_FILE ]
 	then
@@ -43,7 +44,7 @@ local __DOCKER_FILE="$TEMP_DIR/$TEMP_PREFIX.bimage"
 		return
 	fi
 
-	if [ $(build_docker $BASEIMG_FROM $__DOCKER_FILE $TEMP_PREFIX) -eq 1 ]
+	if [ $(build_docker $BASEIMG_TO $__DOCKER_FILE $__OUTPUT_FILE) -eq 1 ]
 	then
 		echo "1"
 	else
@@ -56,7 +57,7 @@ local __DOCKER_FILE="$TEMP_DIR/$TEMP_PREFIX.bimage"
 function find_make_dimage()
 {
 local __DOCKER_FILE="$TEMP_DIR/$TEMP_PREFIX.dimage"
-local __OUTPUT_FILE="$TEMP_DIR/$TEMP_PREFIX.output"
+local __OUTPUT_FILE="$TEMP_DIR/$TEMP_PREFIX.doutput"
 
 	if [ $(is_exist_image $PURIMG_TO) -eq 1 ]
 	then
@@ -203,7 +204,8 @@ else
 	exit
 fi
 
-OS_MAJOR_VER=$(cut_trim $(cut_trim $BASEIMG_FROM 2 ":") 1 ".")
+TAG=$(cut_trim $BASEIMG_FROM 2 ":")
+OS_MAJOR_VER=$(cut_trim $TAG 1 ".")
 if [ $PURPOSE == "man" -a $OS_MAJOR_VER -lt 7 ]
 then
 	echo "[ERROR] It can't be made the base image for manual with $BASEIMG_FROM."

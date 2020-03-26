@@ -1,4 +1,6 @@
 tmp/
 *.org
 *.old
+*.dimage
+*.bimage
 
