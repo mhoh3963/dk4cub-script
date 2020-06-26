@@ -139,45 +139,42 @@ OPTIONS=""
 		OPTIONS="$OPTIONS -p $P22:22"
 	fi
 
-	if [ $PURPOSE == "man" -o $PURPOSE == "test" ]
+	if [ -n "$P80" ]
 	then
-		if [ -n "$P80" ]
-		then
-			OPTIONS="$OPTIONS -p $P80:80"
-		fi
-	else
-		if [ -n "$P1523" ]
-		then
-			OPTIONS="$OPTIONS -p $P1523:1523"
-		fi
-
-		if [ -n "$P8001" ]
-		then
-			OPTIONS="$OPTIONS -p $P8001:8001"
-		fi
-
-		if [ -n "$P8002" ]
-		then
-			OPTIONS="$OPTIONS -p $P8002:8002"
-		fi
-
-		if [ -n "$P30000" ]
-		then
-			OPTIONS="$OPTIONS -p $P30000:30000"
-		fi
-
-		if [ -n "$P33000" ]
-		then
-			OPTIONS="$OPTIONS -p $P33000:33000"
-		fi
-
-		if [ -n "$P59901" ]
-		then
-			OPTIONS="$OPTIONS -p $P59901:59901"
-		fi
+		OPTIONS="$OPTIONS -p $P80:80"
 	fi
 
-	OPTIONS="$OPTIONS cubrid-${PURPOSE}${OS}:1.0" 
+	if [ -n "$P1523" ]
+	then
+		OPTIONS="$OPTIONS -p $P1523:1523"
+	fi
+
+	if [ -n "$P8001" ]
+	then
+		OPTIONS="$OPTIONS -p $P8001:8001"
+	fi
+
+	if [ -n "$P8002" ]
+	then
+		OPTIONS="$OPTIONS -p $P8002:8002"
+	fi
+
+	if [ -n "$P30000" ]
+	then
+		OPTIONS="$OPTIONS -p $P30000:30000"
+	fi
+
+	if [ -n "$P33000" ]
+	then
+		OPTIONS="$OPTIONS -p $P33000:33000"
+	fi
+
+	if [ -n "$P59901" ]
+	then
+		OPTIONS="$OPTIONS -p $P59901:59901"
+	fi
+
+	OPTIONS="$OPTIONS ${IMAGE}"
 
 	if [ $RUN_TYPE == "console" ]
 	then
