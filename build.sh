@@ -193,7 +193,7 @@ then
 					case $SECTION in
 						generic)		parse_generic $LEFT_STR "$RIGHT_STR" ;;
 						base-image)		parse_base_image $LEFT_STR "$RIGHT_STR" ;;
-						purpose-image)	parse_purpose_image $LEFT_STR "$RIGHT_STR" ;
+						purpose-image)	parse_purpose_image $LEFT_STR "$RIGHT_STR" ;;
 					esac
 				fi
 			fi
@@ -228,5 +228,5 @@ ret=$(find_make_dimage)
 case $ret in
 	0) echo "[ERROR] It can't be made $PURIMG_TO with $BASEIMG_TO. please check files ($TEMP_DIR/$TEMP_PREFIX.*)" ;;
 	1) echo "[SUCCESS] $PURIMG_TO" ;;
-	2) echo "[ERROR] Alredy, exist $PURIMG_TO" ;;
+	2) echo "[ERROR] Already, exist $PURIMG_TO" ;;
 esac

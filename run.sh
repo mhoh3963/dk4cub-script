@@ -50,7 +50,7 @@ local __RIGHT_STR=$2
 		image)		IMAGE=$__RIGHT_STR ;;
 		ip)			IP=$__RIGHT_STR ;;
 		run_type)	RUN_TYPE=$__RIGHT_STR ;;
-		privleged)	PRIVLEGED=$__RIGHT_STR ;;
+		privileged)	PRIVILEGED=$__RIGHT_STR ;;
 		cap_option) CAP_OPTION=$__RIGHT_STR ;;
 	esac
 }
@@ -271,7 +271,7 @@ fi
 
 if [ $(is_exist_image $IMAGE) -eq 0 ]
 then
-	echo "[ERROR] Can't find the image ($IMGAE))."
+	echo "[ERROR] Can't find the image ($IMAGE))."
 	echo "        You need to run \"build.sh\", before execute run.sh"
 	exit
 fi
