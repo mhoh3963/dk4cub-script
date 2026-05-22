@@ -1,0 +1,42 @@
+RUN dnf install -y epel-release && \
+    dnf config-manager --set-enabled powertools
+
+RUN dnf update -y && dnf install -y \
+    java-1.8.0-openjdk \
+    java-1.8.0-openjdk-devel \
+    wget \
+    expect \
+    passwd \
+    svn \
+    libtool \
+    make \
+    texinfo \
+    gcc-c++ \
+    gcc \
+    ant \
+    ncurses-devel \
+    libgpg-error-devel \
+    cscope \
+    ctags \
+    gdb \
+    sysstat \
+    git \
+    cmake \
+    systemtap \
+    systemtap-sdt-devel \
+    bison \
+    flex \
+    elfutils-libelf-devel \
+    rpm-build \
+    curl-devel \
+    expat-devel \
+    gettext-devel \
+    openssl-devel \
+    perl-devel \
+    zlib-devel \
+    net-tools \
+    openssh-server \
+    vim-enhanced \
+    asciidoc \
+    xmlto && \
+    dnf clean all
