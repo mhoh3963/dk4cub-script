@@ -11,8 +11,10 @@ RUN dnf update -y && dnf install -y \
     libtool \
     make \
     texinfo \
+    ninja-build \
     gcc-c++ \
     gcc \
+    libstdc++-static \
     ant \
     ncurses-devel \
     libgpg-error-devel \
